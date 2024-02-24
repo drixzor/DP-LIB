@@ -1,3 +1,21 @@
+(function() {
+  var originalAddEventListener = EventTarget.prototype.addEventListener;
+
+  EventTarget.prototype.addEventListener = function(type, listener, options) {
+    if (type === 'touchstart' || type === 'touchmove') {
+      // Check if options is an object, if not, create one
+      if (!(options instanceof Object)) {
+        options = {};
+      }
+      // Set passive to true if it's not already set
+      options.passive = options.passive || true;
+    }
+
+    // Call the original addEventListener method with possibly modified options
+    originalAddEventListener.call(this, type, listener, options);
+  };
+})();
+
 document.addEventListener("DOMContentLoaded", function() {
     var fromDateInputs = document.querySelectorAll(".checkin-date-text");
     var toDateInputs = document.querySelectorAll(".checkout-date-text");
