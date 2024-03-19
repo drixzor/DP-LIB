@@ -147,7 +147,7 @@ toDateInputs.forEach(function(toDateInput) {
         var nights = calculateNights(checkinDate, checkoutDate);
 
         // Construct the URL
-        var url = `https://downtownpark.reserve-online.net/?checkin=${checkinDate}&checkout=${checkoutDate}&rooms=1&nights=${nights}&adults=${guests}&src=606`;
+        var url = `https://book.downtown-park.com/?checkin=${checkinDate}&checkout=${checkoutDate}&rooms=1&nights=${nights}&adults=${guests}&src=606`;
 
         return url;
     }
@@ -173,7 +173,7 @@ if (mobileSubmitButton) {
         var checkoutDate = document.querySelector(".search-widget.mobile .checkout-date-text").dataset.dateValue;
         var guests = document.getElementById("guests").textContent;
         var nights = calculateNights(checkinDate, checkoutDate);
-        var url = `https://downtownpark.reserve-online.net/?checkin=${checkinDate}&checkout=${checkoutDate}&rooms=1&nights=${nights}&adults=${guests}&src=606`;
+        var url = `https://book.downtown-park.com/?checkin=${checkinDate}&checkout=${checkoutDate}&rooms=1&nights=${nights}&adults=${guests}&src=606`;
         // Redirect to the constructed URL
         window.location.href = url;
     });
